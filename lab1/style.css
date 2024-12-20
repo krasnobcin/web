@@ -1,0 +1,8 @@
+body {
+	box-sizing: content-box;
+    background-color: seashell;
+}
+h1 {
+    color: black;
+    text-align: justify;
+  }

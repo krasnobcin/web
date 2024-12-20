@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href = "style.css">
+    <title>LAB 1</title>
+    <h1>LAB 1</h1>
+</head>
+<body>
+    <p>
+        <form id = "input" name="input">
+            <input type="text" name="array" placeholder="Enter the numbers">
+            <input type="button" onclick = "btn_click()" value = "Sort">
+        </form>
+    </p>
+    <p><textarea id = "result" type="text" name = "array" readonly></textarea></p>
+    <script>
+        const form = document.getElementById("input");
+        const txt = document.getElementById("result");
+        function btn_click(){
+            const keyField = form.elements["array"];
+            let arr = (keyField.value).trim().split(" ");
+            let i = 1;
+            let j = 2;
+            while(i<arr.length){
+                if (+arr[i-1]<+arr[i]){
+                    i = j;
+                    j = j+1;
+                }
+                else{
+                    let tmp = arr[i];
+                    arr[i] = arr[i-1];
+                    arr[i-1] = tmp;
+                    i = i-1;
+                    if (i==0){
+                        i = j;
+                        j = j+1;
+                    }
+                }
+            }
+            txt.innerText = arr;
+        }
+    </script>
+</body>
+</html>
